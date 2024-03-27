@@ -1,4 +1,5 @@
 ARG TAG="v1.0.3"
+ARG COMMIT="fc002af57a81855542759d0f77d16dacd7e1aa38"
 ARG BCI_IMAGE=registry.suse.com/bci/bci-base
 ARG GO_IMAGE=rancher/hardened-build-base:v1.21.8b1
 
@@ -12,7 +13,7 @@ ARG TAG
 RUN git clone --depth=1 https://github.com/k8snetworkplumbingwg/ib-sriov-cni
 WORKDIR ib-sriov-cni
 RUN git fetch --all --tags --prune
-RUN git checkout tags/${TAG} -b ${TAG}
+RUN git checkout ${COMMIT} -b ${TAG}
 RUN make clean && make build 
 
 # Create the sriov-cni image
