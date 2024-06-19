@@ -1,4 +1,4 @@
-ARG TAG="v1.0.3"
+ARG TAG=v1.1.1
 ARG COMMIT="fc002af57a81855542759d0f77d16dacd7e1aa38"
 ARG BCI_IMAGE=registry.suse.com/bci/bci-base
 ARG GO_IMAGE=rancher/hardened-build-base:v1.20.14b1
@@ -9,7 +9,7 @@ RUN set -x && \
     apk --no-cache add \
     git \
     make
-ARG TAG
+ARG TAG=v1.1.1
 RUN git clone --depth=1 https://github.com/k8snetworkplumbingwg/ib-sriov-cni
 WORKDIR ib-sriov-cni
 RUN git fetch --all --tags --prune
